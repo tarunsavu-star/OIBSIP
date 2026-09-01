@@ -1,28 +1,35 @@
-// ================= MOBILE MENU =================
+/* =========================================================
+   TARUN KUMAR PORTFOLIO
+   JAVASCRIPT
+========================================================= */
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
 const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+const navMenu = document.getElementById("navMenu");
 
-if (menuToggle && navLinks) {
+if (menuToggle && navMenu) {
+
     menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("mobile-open");
-
-        menuToggle.textContent =
-            navLinks.classList.contains("mobile-open")
-                ? "✕"
-                : "☰";
+        navMenu.classList.toggle("active");
     });
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
+    navMenu.querySelectorAll("a").forEach(link => {
+
         link.addEventListener("click", () => {
-            navLinks.classList.remove("mobile-open");
-            menuToggle.textContent = "☰";
+            navMenu.classList.remove("active");
         });
+
     });
 }
 
 
-// ================= DARK / LIGHT MODE =================
+/* =========================================================
+   DARK / LIGHT MODE
+========================================================= */
 
 const themeToggle = document.getElementById("themeToggle");
 
@@ -37,33 +44,37 @@ if (savedTheme === "dark") {
 }
 
 if (themeToggle) {
+
     themeToggle.addEventListener("click", () => {
 
         document.body.classList.toggle("dark");
 
-        const darkMode =
+        const isDark =
             document.body.classList.contains("dark");
-
-        themeToggle.textContent =
-            darkMode ? "☀️" : "🌙";
 
         localStorage.setItem(
             "tarun-theme",
-            darkMode ? "dark" : "light"
+            isDark ? "dark" : "light"
         );
 
+        themeToggle.textContent =
+            isDark ? "☀️" : "🌙";
+
     });
+
 }
 
 
-// ================= SCROLL REVEAL =================
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
 const revealElements =
     document.querySelectorAll(".reveal");
 
 const revealObserver =
     new IntersectionObserver(
-        entries => {
+        (entries, observer) => {
 
             entries.forEach(entry => {
 
@@ -71,9 +82,7 @@ const revealObserver =
 
                     entry.target.classList.add("visible");
 
-                    revealObserver.unobserve(
-                        entry.target
-                    );
+                    observer.unobserve(entry.target);
 
                 }
 
@@ -85,164 +94,156 @@ const revealObserver =
         }
     );
 
+
 revealElements.forEach(element => {
+
     revealObserver.observe(element);
+
 });
 
 
-// ================= ANIMATED STATS =================
+/* =========================================================
+   ANIMATED STAT COUNTERS
+========================================================= */
 
 const counters =
-    document.querySelectorAll("[data-target]");
+    document.querySelectorAll("[data-count]");
 
-function animateCounter(counter) {
+const counterObserver =
+    new IntersectionObserver(
+        (entries, observer) => {
 
-    const target =
-        Number(counter.dataset.target);
+            entries.forEach(entry => {
 
-    const isDecimal =
-        String(target).includes(".");
-
-    let current = 0;
-
-    const duration = 1600;
-
-    const startTime = performance.now();
-
-    function update(currentTime) {
-
-        const elapsed =
-            currentTime - startTime;
-
-        const progress =
-            Math.min(elapsed / duration, 1);
-
-        const eased =
-            1 - Math.pow(1 - progress, 3);
-
-        current = target * eased;
-
-        counter.textContent =
-            isDecimal
-                ? current.toFixed(2)
-                : Math.floor(current);
-
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        } else {
-            counter.textContent =
-                isDecimal
-                    ? target.toFixed(2)
-                    : target;
-        }
-
-    }
-
-    requestAnimationFrame(update);
-}
-
-
-const statsSection =
-    document.querySelector(".stats-section");
-
-let statsAnimated = false;
-
-if (statsSection) {
-
-    const statsObserver =
-        new IntersectionObserver(
-            entries => {
-
-                if (
-                    entries[0].isIntersecting &&
-                    !statsAnimated
-                ) {
-
-                    statsAnimated = true;
-
-                    counters.forEach(
-                        animateCounter
-                    );
-
-                    statsObserver.disconnect();
+                if (!entry.isIntersecting) {
+                    return;
                 }
 
-            },
-            {
-                threshold: 0.3
-            }
-        );
+                const counter = entry.target;
 
-    statsObserver.observe(statsSection);
-}
+                const target =
+                    Number(counter.dataset.count);
+
+                let current = 0;
+
+                const duration = 1200;
+
+                const stepTime =
+                    Math.max(
+                        Math.floor(duration / target),
+                        50
+                    );
+
+                const timer =
+                    setInterval(() => {
+
+                        current++;
+
+                        counter.textContent =
+                            current;
+
+                        if (current >= target) {
+
+                            clearInterval(timer);
+
+                            counter.textContent =
+                                target;
+
+                        }
+
+                    }, stepTime);
+
+                observer.unobserve(counter);
+
+            });
+
+        },
+        {
+            threshold: 0.7
+        }
+    );
 
 
-// ================= PROJECT DETAILS =================
+counters.forEach(counter => {
+
+    counterObserver.observe(counter);
+
+});
+
+
+/* =========================================================
+   PROJECT DATA
+========================================================= */
 
 const projectData = {
 
-    "AI Career Guidance Chatbot": {
+    career: {
 
-        number: "PROJECT 01",
-
-        description:
-            "A full-stack AI career guidance chatbot designed to provide personalized career recommendations using Natural Language Processing.",
-
-        technologies: [
-            "Flask",
-            "scikit-learn",
-            "NLTK",
-            "spaCy",
-            "SQLite",
-            "REST API"
-        ]
-
-    },
-
-    "Student Placement Prediction System": {
-
-        number: "PROJECT 02",
+        title: "AI Career Guidance Chatbot",
 
         description:
-            "A machine learning application using Random Forest to predict student placement outcomes based on student-related data.",
+            "An AI-powered career guidance chatbot designed to help users explore career options and receive useful career-related information. The project focuses on conversational interaction, Artificial Intelligence and Natural Language Processing.",
 
         technologies: [
             "Python",
+            "AI",
+            "NLP",
+            "NLTK",
+            "spaCy"
+        ]
+
+    },
+
+
+    placement: {
+
+        title:
+            "Student Placement Prediction System",
+
+        description:
+            "A machine-learning based application that uses student-related academic information to predict placement outcomes. The project demonstrates data processing, machine learning and predictive analysis.",
+
+        technologies: [
+            "Python",
+            "Machine Learning",
             "Pandas",
-            "scikit-learn",
-            "Random Forest",
-            "Tkinter"
+            "scikit-learn"
         ]
 
     },
 
-    "Reservation System": {
 
-        number: "PROJECT 03",
+    reservation: {
+
+        title:
+            "Reservation System",
 
         description:
-            "A government-style online train reservation booking application developed as a hackathon project.",
+            "A web-based reservation application designed to simplify booking and reservation management through a user-friendly interface and structured data handling.",
 
         technologies: [
-            "HTML",
-            "CSS",
+            "HTML5",
+            "CSS3",
             "JavaScript",
-            "Python"
+            "Database"
         ]
 
     },
 
-    "Scholarship Application Platform": {
 
-        number: "PROJECT 04",
+    scholarship: {
+
+        title:
+            "Scholarship Application Platform",
 
         description:
-            "A scholarship application platform with an AI chatbot designed to guide students through the application process.",
+            "A digital platform designed to make scholarship applications easier for students by providing a structured interface for submitting and managing application information.",
 
         technologies: [
-            "AI Chatbot",
-            "GitHub",
-            "Web Development"
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Database"
         ]
 
     }
@@ -250,85 +251,95 @@ const projectData = {
 };
 
 
+/* =========================================================
+   PROJECT MODAL
+========================================================= */
+
 const projectModal =
     document.getElementById("projectModal");
 
-const closeProjectModal =
-    document.getElementById("closeProjectModal");
+const modalClose =
+    document.getElementById("modalClose");
 
-const modalProjectNumber =
-    document.getElementById("modalProjectNumber");
+const modalTitle =
+    document.getElementById("modalTitle");
 
-const modalProjectTitle =
-    document.getElementById("modalProjectTitle");
+const modalDescription =
+    document.getElementById("modalDescription");
 
-const modalProjectDescription =
-    document.getElementById(
-        "modalProjectDescription"
-    );
-
-const modalProjectTech =
-    document.getElementById("modalProjectTech");
+const modalTechnologies =
+    document.getElementById("modalTechnologies");
 
 
-document
-    .querySelectorAll(".project-details")
-    .forEach(button => {
+const projectButtons =
+    document.querySelectorAll(".project-btn");
 
-        button.addEventListener(
-            "click",
-            () => {
 
-                const project =
-                    button.dataset.project;
+projectButtons.forEach(button => {
 
-                const data =
-                    projectData[project];
+    button.addEventListener("click", () => {
 
-                if (!data) return;
+        const projectName =
+            button.dataset.project;
 
-                modalProjectNumber.textContent =
-                    data.number;
+        const project =
+            projectData[projectName];
 
-                modalProjectTitle.textContent =
-                    project;
+        if (!project) {
+            return;
+        }
 
-                modalProjectDescription.textContent =
-                    data.description;
+        modalTitle.textContent =
+            project.title;
 
-                modalProjectTech.innerHTML =
-                    data.technologies
-                        .map(
-                            technology =>
-                                `<span>${technology}</span>`
-                        )
-                        .join("");
+        modalDescription.textContent =
+            project.description;
 
-                projectModal.classList.add("open");
+        modalTechnologies.innerHTML = "";
 
-                document.body.style.overflow =
-                    "hidden";
+        project.technologies.forEach(technology => {
 
-            }
-        );
+            const tag =
+                document.createElement("span");
+
+            tag.textContent =
+                technology;
+
+            modalTechnologies.appendChild(tag);
+
+        });
+
+        projectModal.classList.add("active");
+
+        document.body.style.overflow =
+            "hidden";
 
     });
 
+});
 
-function closeModal() {
 
-    projectModal.classList.remove("open");
+function closeProjectModal() {
 
-    document.body.style.overflow = "";
+    if (!projectModal) {
+        return;
+    }
+
+    projectModal.classList.remove("active");
+
+    document.body.style.overflow =
+        "";
 
 }
 
 
-if (closeProjectModal) {
-    closeProjectModal.addEventListener(
+if (modalClose) {
+
+    modalClose.addEventListener(
         "click",
-        closeModal
+        closeProjectModal
     );
+
 }
 
 
@@ -338,10 +349,8 @@ if (projectModal) {
         "click",
         event => {
 
-            if (
-                event.target === projectModal
-            ) {
-                closeModal();
+            if (event.target === projectModal) {
+                closeProjectModal();
             }
 
         }
@@ -350,41 +359,27 @@ if (projectModal) {
 }
 
 
-// ================= KEYBOARD ESCAPE =================
-
 document.addEventListener(
     "keydown",
     event => {
 
         if (event.key === "Escape") {
-
-            if (
-                projectModal &&
-                projectModal.classList.contains("open")
-            ) {
-                closeModal();
-            }
-
-            if (
-                chatWindow &&
-                chatWindow.classList.contains("open")
-            ) {
-                closeChatWindow();
-            }
-
+            closeProjectModal();
         }
 
     }
 );
 
 
-// ================= CONTACT FORM =================
+/* =========================================================
+   CONTACT FORM
+========================================================= */
 
 const contactForm =
     document.getElementById("contactForm");
 
-const contactStatus =
-    document.getElementById("contactStatus");
+const formMessage =
+    document.getElementById("formMessage");
 
 
 if (contactForm) {
@@ -396,37 +391,28 @@ if (contactForm) {
             event.preventDefault();
 
             const name =
-                document.getElementById(
-                    "contactName"
-                ).value.trim();
+                document.getElementById("name").value.trim();
 
             const email =
-                document.getElementById(
-                    "contactEmail"
-                ).value.trim();
+                document.getElementById("email").value.trim();
 
             const subject =
-                document.getElementById(
-                    "contactSubject"
-                ).value.trim();
+                document.getElementById("subject").value.trim();
 
             const message =
-                document.getElementById(
-                    "contactMessage"
-                ).value.trim();
+                document.getElementById("message").value.trim();
 
 
-            if (
-                !name ||
+            if (!name ||
                 !email ||
                 !subject ||
-                !message
-            ) {
+                !message) {
 
-                contactStatus.textContent =
-                    "Please complete all fields.";
+                formMessage.textContent =
+                    "Please fill in all fields.";
 
                 return;
+
             }
 
 
@@ -436,7 +422,7 @@ if (contactForm) {
 
             if (!emailPattern.test(email)) {
 
-                contactStatus.textContent =
+                formMessage.textContent =
                     "Please enter a valid email address.";
 
                 return;
@@ -444,11 +430,25 @@ if (contactForm) {
             }
 
 
-            contactStatus.textContent =
-                "Message details validated successfully. You can contact Tarun directly using the email button above.";
+            const mailSubject =
+                encodeURIComponent(subject);
+
+            const mailBody =
+                encodeURIComponent(
+                    `Name: ${name}\n\n` +
+                    `Email: ${email}\n\n` +
+                    `Message:\n${message}`
+                );
 
 
-            contactForm.reset();
+            window.location.href =
+                `mailto:tarunsavu@gmail.com` +
+                `?subject=${mailSubject}` +
+                `&body=${mailBody}`;
+
+
+            formMessage.textContent =
+                "Opening your email application...";
 
         }
     );
@@ -456,7 +456,9 @@ if (contactForm) {
 }
 
 
-// ================= PORTFOLIO CHAT =================
+/* =========================================================
+   CHATBOT
+========================================================= */
 
 const chatButton =
     document.getElementById("chatButton");
@@ -464,81 +466,91 @@ const chatButton =
 const chatWindow =
     document.getElementById("chatWindow");
 
-const closeChat =
-    document.getElementById("closeChat");
+const chatClose =
+    document.getElementById("chatClose");
 
 const chatInput =
     document.getElementById("chatInput");
 
-const sendChat =
-    document.getElementById("sendChat");
+const chatSend =
+    document.getElementById("chatSend");
 
 const chatMessages =
     document.getElementById("chatMessages");
 
 
-function openChatWindow() {
-
-    if (!chatWindow) return;
-
-    chatWindow.classList.add("open");
-
-    if (chatInput) {
-        chatInput.focus();
-    }
-
-}
-
-
-function closeChatWindow() {
-
-    if (!chatWindow) return;
-
-    chatWindow.classList.remove("open");
-
-}
-
+/* Open chat */
 
 if (chatButton) {
 
     chatButton.addEventListener(
         "click",
-        openChatWindow
+        () => {
+
+            chatWindow.classList.add("active");
+
+            if (chatInput) {
+                chatInput.focus();
+            }
+
+        }
     );
 
 }
 
 
-if (closeChat) {
+/* Close chat */
 
-    closeChat.addEventListener(
+if (chatClose) {
+
+    chatClose.addEventListener(
         "click",
-        closeChatWindow
+        () => {
+
+            chatWindow.classList.remove("active");
+
+        }
     );
 
 }
 
 
-// ================= CHAT ANSWERS =================
+/* =========================================================
+   CHAT RESPONSES
+========================================================= */
 
-function getChatResponse(question) {
+function getChatResponse(message) {
 
     const text =
-        question.toLowerCase();
+        message.toLowerCase();
+
+
+    if (
+        text.includes("hello") ||
+        text.includes("hi") ||
+        text.includes("hey")
+    ) {
+
+        return `
+            Hi! 👋 Welcome to Tarun's portfolio.
+            How can I help you?
+        `;
+
+    }
 
 
     if (
         text.includes("skill") ||
         text.includes("technology") ||
-        text.includes("technologies")
+        text.includes("tech")
     ) {
 
-        return (
-            "Tarun's technical skills include C, Python, Java, " +
-            "JavaScript, HTML5, CSS3, React, Node.js, Express.js, " +
-            "MongoDB, REST APIs, AI/ML, software testing, Git/GitHub, " +
-            "Linux and Azure Fundamentals."
-        );
+        return `
+            Tarun works with C, Python, Java,
+            JavaScript, HTML, CSS, React,
+            Node.js, Express.js, MongoDB,
+            REST APIs and AI/ML technologies.
+        `;
 
     }
 
@@ -548,27 +560,27 @@ function getChatResponse(question) {
         text.includes("projects")
     ) {
 
-        return (
-            "Tarun has worked on four main projects: " +
-            "AI Career Guidance Chatbot, Student Placement " +
-            "Prediction System, Reservation System and " +
-            "Scholarship Application Platform."
-        );
+        return `
+            Tarun has worked on an AI Career
+            Guidance Chatbot, Student Placement
+            Prediction System, Reservation System
+            and Scholarship Application Platform.
+        `;
 
     }
 
 
     if (
         text.includes("experience") ||
-        text.includes("internship") ||
-        text.includes("intern")
+        text.includes("internship")
     ) {
 
-        return (
-            "Tarun completed internships at ADHOC Network as a " +
-            "MERN Full Stack Development Intern and at Vidrutha " +
-            "Solutions as a Software Development Intern."
-        );
+        return `
+            Tarun has internship experience in
+            MERN Full Stack Development, Software
+            Development and Web Development &
+            Designing through OIBSIP.
+        `;
 
     }
 
@@ -576,28 +588,44 @@ function getChatResponse(question) {
     if (
         text.includes("education") ||
         text.includes("degree") ||
-        text.includes("bca")
+        text.includes("college")
     ) {
 
-        return (
-            "Tarun is pursuing/completed a Bachelor of Computer " +
-            "Applications (BCA) at Sri Aditya Degree College, " +
-            "with a CGPA of 7.81/10."
-        );
+        return `
+            Tarun completed his BCA at Sri Aditya
+            Degree College with a CGPA of 7.81/10.
+        `;
 
     }
 
 
     if (
-        text.includes("certification") ||
-        text.includes("certificate")
+        text.includes("certificate") ||
+        text.includes("certification")
     ) {
 
-        return (
-            "Tarun has six certifications covering Python, C " +
-            "Programming, Microsoft Azure Fundamentals, HTML5, " +
-            "AI & Machine Learning and English Language Proficiency."
-        );
+        return `
+            Certifications include Python Essentials,
+            C Programming, Microsoft Azure Fundamentals,
+            HTML5 Application Development, AI & Machine
+            Learning and MePro English Language
+            Proficiency.
+        `;
+
+    }
+
+
+    if (
+        text.includes("oibsip") ||
+        text.includes("oasis") ||
+        text.includes("task")
+    ) {
+
+        return `
+            Tarun completed three OIBSIP Level 1
+            projects: Landing Page, Personal Portfolio
+            and Temperature Converter.
+        `;
 
     }
 
@@ -608,73 +636,103 @@ function getChatResponse(question) {
         text.includes("phone")
     ) {
 
-        return (
-            "You can contact Tarun at tarunsavu@gmail.com " +
-            "or call +91 7569786175. LinkedIn and GitHub " +
-            "links are also available in the portfolio."
-        );
+        return `
+            You can contact Tarun at
+            tarunsavu@gmail.com or
+            +91 7569786175.
+        `;
 
     }
 
 
     if (
-        text.includes("oibsip") ||
-        text.includes("task")
+        text.includes("linkedin")
     ) {
 
-        return (
-            "The OIBSIP section contains direct links to " +
-            "Tarun's Task 1 Landing Page, Task 2 Personal " +
-            "Portfolio and Task 3 Temperature Converter."
-        );
+        return `
+            You can connect with Tarun on LinkedIn
+            using the LinkedIn link in the Contact
+            section.
+        `;
 
     }
 
 
     if (
-        text.includes("hello") ||
-        text.includes("hi") ||
-        text.includes("hey")
+        text.includes("github")
     ) {
 
-        return (
-            "Hi! 👋 I'm Tarun's portfolio assistant. " +
-            "Ask me about his skills, projects, experience, " +
-            "education, certifications or contact details."
-        );
+        return `
+            Tarun's GitHub profile is available through
+            the GitHub link in the Contact section.
+        `;
 
     }
 
 
-    return (
-        "I can answer questions about Tarun's skills, " +
-        "projects, internships, education, certifications, " +
-        "OIBSIP tasks and contact information."
-    );
+    if (
+        text.includes("hire") ||
+        text.includes("job") ||
+        text.includes("opportunity")
+    ) {
+
+        return `
+            Tarun is interested in software development,
+            full-stack development and related
+            technology opportunities.
+        `;
+
+    }
+
+
+    if (
+        text.includes("thank") ||
+        text.includes("thanks")
+    ) {
+
+        return `
+            You're welcome! 😊
+        `;
+
+    }
+
+
+    return `
+        I'm not sure about that yet. You can ask me
+        about Tarun's skills, projects, internships,
+        education, certifications, OIBSIP tasks
+        or contact details.
+    `;
 
 }
 
 
-// ================= ADD CHAT MESSAGE =================
+/* =========================================================
+   ADD CHAT MESSAGE
+========================================================= */
 
 function addChatMessage(
-    text,
-    type
+    message,
+    sender
 ) {
 
-    if (!chatMessages) return;
+    if (!chatMessages) {
+        return;
+    }
 
-    const message =
+    const messageElement =
         document.createElement("div");
 
-    message.className =
-        type === "user"
-            ? "user-message"
-            : "bot-message";
+    messageElement.className =
+        `message ${sender}`;
 
-    message.textContent = text;
+    messageElement.innerHTML =
+        message;
 
-    chatMessages.appendChild(message);
+    chatMessages.appendChild(
+        messageElement
+    );
+
 
     chatMessages.scrollTop =
         chatMessages.scrollHeight;
@@ -682,50 +740,62 @@ function addChatMessage(
 }
 
 
-// ================= SEND CHAT =================
+/* =========================================================
+   SEND CHAT MESSAGE
+========================================================= */
 
-function sendMessage() {
+function sendChatMessage() {
 
-    if (!chatInput) return;
+    if (!chatInput) {
+        return;
+    }
 
-    const question =
+    const message =
         chatInput.value.trim();
 
-    if (!question) return;
+
+    if (!message) {
+        return;
+    }
 
 
     addChatMessage(
-        question,
+        message,
         "user"
     );
+
 
     chatInput.value = "";
 
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            addChatMessage(
-                getChatResponse(question),
-                "bot"
-            );
+        const response =
+            getChatResponse(message);
 
-        },
-        450
-    );
+        addChatMessage(
+            response,
+            "bot"
+        );
+
+    }, 500);
 
 }
 
 
-if (sendChat) {
+/* Send button */
 
-    sendChat.addEventListener(
+if (chatSend) {
+
+    chatSend.addEventListener(
         "click",
-        sendMessage
+        sendChatMessage
     );
 
 }
 
+
+/* Enter key */
 
 if (chatInput) {
 
@@ -737,7 +807,7 @@ if (chatInput) {
 
                 event.preventDefault();
 
-                sendMessage();
+                sendChatMessage();
 
             }
 
@@ -747,81 +817,200 @@ if (chatInput) {
 }
 
 
-// ================= QUICK CHAT =================
+/* =========================================================
+   QUICK CHAT QUESTIONS
+========================================================= */
 
-document
-    .querySelectorAll(".quick-options button")
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const type =
-                    button.dataset.question;
-
-                const questions = {
-
-                    skills:
-                        "What are Tarun's skills?",
-
-                    projects:
-                        "What projects has Tarun built?",
-
-                    experience:
-                        "What internship experience does Tarun have?",
-
-                    contact:
-                        "How can I contact Tarun?"
-
-                };
+const quickQuestions =
+    document.querySelectorAll(
+        ".quick-questions button"
+    );
 
 
-                const question =
-                    questions[type];
+quickQuestions.forEach(button => {
 
-                if (!question) return;
+    button.addEventListener(
+        "click",
+        () => {
 
+            const question =
+                button.dataset.question;
+
+
+            const questions = {
+
+                skills:
+                    "What are Tarun's skills?",
+
+                projects:
+                    "What projects has Tarun built?",
+
+                experience:
+                    "Tell me about Tarun's experience.",
+
+                contact:
+                    "How can I contact Tarun?"
+
+            };
+
+
+            const selectedQuestion =
+                questions[question];
+
+
+            if (!selectedQuestion) {
+                return;
+            }
+
+
+            addChatMessage(
+                selectedQuestion,
+                "user"
+            );
+
+
+            setTimeout(() => {
 
                 addChatMessage(
-                    question,
-                    "user"
+                    getChatResponse(
+                        selectedQuestion
+                    ),
+                    "bot"
                 );
 
+            }, 400);
 
-                setTimeout(
-                    () => {
-
-                        addChatMessage(
-                            getChatResponse(question),
-                            "bot"
-                        );
-
-                    },
-                    450
-                );
-
-            }
-        );
-
-    });
-
-
-// ================= CURRENT YEAR =================
-
-const yearElements =
-    document.querySelectorAll(".current-year");
-
-yearElements.forEach(element => {
-
-    element.textContent =
-        new Date().getFullYear();
+        }
+    );
 
 });
 
 
-// ================= PAGE LOADED =================
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
 
-console.log(
-    "Tarun Kumar Portfolio loaded successfully."
+const yearElement =
+    document.getElementById("year");
+
+
+if (yearElement) {
+
+    yearElement.textContent =
+        new Date().getFullYear();
+
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll(
+        "section[id]"
+    );
+
+const navLinks =
+    document.querySelectorAll(
+        "nav a"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        let currentSection = "";
+
+        sections.forEach(section => {
+
+            const sectionTop =
+                section.offsetTop - 150;
+
+            const sectionHeight =
+                section.offsetHeight;
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY <
+                sectionTop + sectionHeight
+            ) {
+
+                currentSection =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            if (
+                link.getAttribute("href") ===
+                `#${currentSection}`
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+);
+
+
+/* =========================================================
+   SMOOTH BUTTON FEEDBACK
+========================================================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(link => {
+
+    link.addEventListener(
+        "click",
+        event => {
+
+            const targetId =
+                link.getAttribute("href");
+
+            if (
+                targetId === "#" ||
+                !document.querySelector(targetId)
+            ) {
+                return;
+            }
+
+            event.preventDefault();
+
+            document
+                .querySelector(targetId)
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   PAGE LOADED
+========================================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        document.body.classList.add(
+            "page-loaded"
+        );
+
+    }
 );
