@@ -2,54 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Savu Tarun Kumar | Full Stack Developer</title>
 
     <meta name="description"
-          content="Savu Tarun Kumar - BCA Graduate, Full Stack Developer and AI/ML Enthusiast">
-
-    <title>Savu Tarun Kumar | Portfolio</title>
+          content="Portfolio of Savu Tarun Kumar - Full Stack Developer and AI/ML Enthusiast">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+<!-- ================= NAVBAR ================= -->
 
 <header class="navbar">
 
-    <a href="#home" class="logo">
-        Tarun<span>.</span>
-    </a>
+    <div class="nav-container">
 
-    <button class="menu-toggle" id="menuToggle">
-        ☰
-    </button>
+        <a href="#home" class="logo">
+            <span>TK</span>
+            Tarun Kumar
+        </a>
 
-    <nav id="navLinks" class="nav-links">
+        <button class="menu-toggle" id="menuToggle">
+            ☰
+        </button>
 
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
+        <nav id="navMenu">
 
-    </nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
 
-    <button id="themeToggle" class="theme-toggle">
-        🌙
-    </button>
+        </nav>
+
+        <button class="theme-btn" id="themeToggle">
+            🌙
+        </button>
+
+    </div>
 
 </header>
 
 
 <!-- ================= HERO ================= -->
 
-<section id="home" class="hero">
+<section class="hero" id="home">
 
     <div class="hero-content reveal">
 
@@ -58,7 +61,8 @@
         </p>
 
         <h1>
-            Hi, I'm <span>Savu Tarun Kumar</span>
+            Hi, I'm
+            <span>Savu Tarun Kumar</span>
         </h1>
 
         <h2>
@@ -66,10 +70,9 @@
         </h2>
 
         <p class="hero-text">
-            BCA graduate with hands-on experience in full-stack
-            development, AI/ML and software testing. I enjoy
-            building practical, responsive and user-focused
-            digital solutions.
+            I build modern, responsive and user-focused web applications
+            using full-stack technologies, while exploring the possibilities
+            of Artificial Intelligence and Machine Learning.
         </p>
 
         <div class="hero-buttons">
@@ -78,32 +81,34 @@
                 View My Work
             </a>
 
-            <a href="Tarun_Resume_Updated.pdf"
-               class="btn secondary"
-               target="_blank">
-                📄 View Resume
+            <a href="#contact" class="btn secondary">
+                Let's Connect
             </a>
 
         </div>
 
         <div class="social-links">
 
-            <a href="mailto:tarunsavu@gmail.com">
-                ✉ Email
+            <a href="mailto:tarunsavu@gmail.com" title="Email">
+                ✉️
             </a>
 
-            <a href="tel:+917569786175">
-                ☎ Call
+            <a href="tel:+917569786175" title="Phone">
+                📞
             </a>
 
             <a href="https://www.linkedin.com/in/tarun-kumar-savu-730311384/"
-               target="_blank">
-                LinkedIn
+               target="_blank"
+               rel="noopener"
+               title="LinkedIn">
+                in
             </a>
 
             <a href="https://github.com/tarunsavu-star"
-               target="_blank">
-                GitHub
+               target="_blank"
+               rel="noopener"
+               title="GitHub">
+                GH
             </a>
 
         </div>
@@ -111,17 +116,67 @@
     </div>
 
 
-    <div class="hero-image reveal">
+    <div class="hero-card reveal">
 
-        <div class="image-ring">
+        <div class="code-window">
 
-            <img src="profile.jpg"
-                 alt="Savu Tarun Kumar">
+            <div class="window-top">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <div class="code-content">
+
+                <p>
+                    <span class="code-purple">const</span>
+                    developer = {
+                </p>
+
+                <p class="indent">
+                    name:
+                    <span class="code-green">
+                        "Tarun Kumar"
+                    </span>,
+                </p>
+
+                <p class="indent">
+                    role:
+                    <span class="code-green">
+                        "Full Stack Developer"
+                    </span>,
+                </p>
+
+                <p class="indent">
+                    focus:
+                    <span class="code-green">
+                        "AI / ML"
+                    </span>,
+                </p>
+
+                <p class="indent">
+                    status:
+                    <span class="code-green">
+                        "Open to Opportunities"
+                    </span>
+                </p>
+
+                <p>
+                    };
+                </p>
+
+            </div>
 
         </div>
 
-        <div class="availability">
-            ● Open to Opportunities
+        <div class="floating-tag tag-one">
+            💻 Web Development
+        </div>
+
+        <div class="floating-tag tag-two">
+            🤖 AI / ML
         </div>
 
     </div>
@@ -133,38 +188,47 @@
 
 <section class="stats-section">
 
-    <div class="stat-card reveal">
+    <div class="stats-grid">
 
-        <strong data-target="7.81">0</strong>
+        <div class="stat-card reveal">
 
-        <span>CGPA / 10</span>
+            <strong data-count="4">0</strong>
 
-    </div>
+            <span>
+                Major Projects
+            </span>
 
+        </div>
 
-    <div class="stat-card reveal">
+        <div class="stat-card reveal">
 
-        <strong data-target="6">0</strong>
+            <strong data-count="2">0</strong>
 
-        <span>Certifications</span>
+            <span>
+                Internships
+            </span>
 
-    </div>
+        </div>
 
+        <div class="stat-card reveal">
 
-    <div class="stat-card reveal">
+            <strong data-count="6">0</strong>
 
-        <strong data-target="2">0</strong>
+            <span>
+                Certifications
+            </span>
 
-        <span>Internships</span>
+        </div>
 
-    </div>
+        <div class="stat-card reveal">
 
+            <strong data-count="3">0</strong>
 
-    <div class="stat-card reveal">
+            <span>
+                OIBSIP Tasks
+            </span>
 
-        <strong data-target="4">0</strong>
-
-        <span>Projects</span>
+        </div>
 
     </div>
 
@@ -173,15 +237,14 @@
 
 <!-- ================= ABOUT ================= -->
 
-<section id="about" class="section">
+<section class="section" id="about">
 
     <div class="section-heading reveal">
 
         <p>ABOUT ME</p>
 
         <h2>
-            Building practical solutions
-            with technology.
+            Building technology with purpose.
         </h2>
 
     </div>
@@ -192,21 +255,20 @@
         <div class="about-text reveal">
 
             <p>
-                I am a BCA graduate from Sri Aditya Degree College,
-                with hands-on experience across full-stack development,
-                AI/ML and software testing.
+                I am Savu Tarun Kumar, a BCA graduate with an interest in
+                software development, full-stack web development and
+                Artificial Intelligence / Machine Learning.
             </p>
 
             <p>
-                My experience includes working with MERN technologies,
-                developing AI-based applications and participating
-                in hackathon projects.
+                My development journey includes building web applications,
+                working with databases and APIs, exploring machine learning,
+                and gaining practical experience through internships.
             </p>
 
             <p>
-                I am looking to bring my practical development and
-                QA skills into an entry-level software role and
-                continue growing as a dependable team member.
+                I enjoy learning new technologies and turning ideas into
+                practical digital solutions.
             </p>
 
         </div>
@@ -214,45 +276,36 @@
 
         <div class="about-highlights reveal">
 
-            <div class="highlight-card">
-
-                <span>01</span>
-
-                <h3>Full Stack Development</h3>
-
-                <p>
-                    React, Node.js, Express.js,
-                    MongoDB and REST APIs.
-                </p>
-
+            <div class="highlight">
+                <span>🎓</span>
+                <div>
+                    <h3>BCA Graduate</h3>
+                    <p>Sri Aditya Degree College</p>
+                </div>
             </div>
 
-
-            <div class="highlight-card">
-
-                <span>02</span>
-
-                <h3>AI & Machine Learning</h3>
-
-                <p>
-                    Python, scikit-learn, NLTK,
-                    spaCy, Pandas and Flask.
-                </p>
-
+            <div class="highlight">
+                <span>💻</span>
+                <div>
+                    <h3>Full Stack</h3>
+                    <p>Modern web technologies</p>
+                </div>
             </div>
 
+            <div class="highlight">
+                <span>🤖</span>
+                <div>
+                    <h3>AI / ML</h3>
+                    <p>Building intelligent solutions</p>
+                </div>
+            </div>
 
-            <div class="highlight-card">
-
-                <span>03</span>
-
-                <h3>Software Testing</h3>
-
-                <p>
-                    Manual testing, cross-browser
-                    testing and bug tracking.
-                </p>
-
+            <div class="highlight">
+                <span>🚀</span>
+                <div>
+                    <h3>Continuous Learner</h3>
+                    <p>Always exploring new technologies</p>
+                </div>
             </div>
 
         </div>
@@ -264,11 +317,11 @@
 
 <!-- ================= SKILLS ================= -->
 
-<section id="skills" class="section section-alt">
+<section class="section alt-section" id="skills">
 
     <div class="section-heading reveal">
 
-        <p>TECHNICAL SKILLS</p>
+        <p>MY SKILLS</p>
 
         <h2>
             Technologies I work with.
@@ -277,16 +330,14 @@
     </div>
 
 
-    <div class="skills-grid">
+    <div class="skills-container">
 
 
         <div class="skill-category reveal">
 
-            <div class="skill-icon">⌘</div>
-
             <h3>Programming</h3>
 
-            <div class="skill-tags">
+            <div class="skill-list">
 
                 <span>C</span>
                 <span>Python</span>
@@ -300,18 +351,28 @@
 
         <div class="skill-category reveal">
 
-            <div class="skill-icon">⌘</div>
+            <h3>Frontend</h3>
 
-            <h3>Web & Full Stack</h3>
-
-            <div class="skill-tags">
+            <div class="skill-list">
 
                 <span>HTML5</span>
                 <span>CSS3</span>
                 <span>React</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill-category reveal">
+
+            <h3>Backend</h3>
+
+            <div class="skill-list">
+
                 <span>Node.js</span>
                 <span>Express.js</span>
-                <span>MongoDB</span>
+                <span>Flask</span>
                 <span>REST APIs</span>
 
             </div>
@@ -321,17 +382,28 @@
 
         <div class="skill-category reveal">
 
-            <div class="skill-icon">✦</div>
+            <h3>Database</h3>
+
+            <div class="skill-list">
+
+                <span>MongoDB</span>
+                <span>SQLite</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill-category reveal">
 
             <h3>AI / ML</h3>
 
-            <div class="skill-tags">
+            <div class="skill-list">
 
                 <span>scikit-learn</span>
+                <span>Pandas</span>
                 <span>NLTK</span>
                 <span>spaCy</span>
-                <span>Pandas</span>
-                <span>Flask</span>
 
             </div>
 
@@ -340,35 +412,14 @@
 
         <div class="skill-category reveal">
 
-            <div class="skill-icon">✓</div>
+            <h3>Tools</h3>
 
-            <h3>Testing & QA</h3>
-
-            <div class="skill-tags">
-
-                <span>Manual Testing</span>
-                <span>Cross-Browser Testing</span>
-                <span>Bug Tracking</span>
-                <span>Agile/Scrum</span>
-
-            </div>
-
-        </div>
-
-
-        <div class="skill-category reveal">
-
-            <div class="skill-icon">⚙</div>
-
-            <h3>DevOps & Cloud</h3>
-
-            <div class="skill-tags">
+            <div class="skill-list">
 
                 <span>Git</span>
                 <span>GitHub</span>
                 <span>Linux</span>
-                <span>DevOps Fundamentals</span>
-                <span>Azure Fundamentals</span>
+                <span>VS Code</span>
 
             </div>
 
@@ -377,16 +428,27 @@
 
         <div class="skill-category reveal">
 
-            <div class="skill-icon">▣</div>
+            <h3>Testing</h3>
 
-            <h3>Tools & Platforms</h3>
+            <div class="skill-list">
 
-            <div class="skill-tags">
+                <span>Manual Testing</span>
+                <span>Cross-Browser Testing</span>
+                <span>Bug Tracking</span>
 
-                <span>VS Code</span>
-                <span>MS Office</span>
-                <span>Linux</span>
-                <span>SQLite</span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-category reveal">
+
+            <h3>Cloud & DevOps</h3>
+
+            <div class="skill-list">
+
+                <span>Azure Fundamentals</span>
+                <span>DevOps Fundamentals</span>
 
             </div>
 
@@ -399,11 +461,11 @@
 
 <!-- ================= PROJECTS ================= -->
 
-<section id="projects" class="section">
+<section class="section" id="projects">
 
     <div class="section-heading reveal">
 
-        <p>MY PROJECTS</p>
+        <p>PROJECTS</p>
 
         <h2>
             Things I've built.
@@ -415,12 +477,14 @@
     <div class="projects-grid">
 
 
-        <!-- PROJECT 1 -->
-
         <article class="project-card reveal">
 
             <div class="project-number">
                 01
+            </div>
+
+            <div class="project-icon">
+                🤖
             </div>
 
             <h3>
@@ -428,30 +492,25 @@
             </h3>
 
             <p>
-                A full-stack AI chatbot that provides personalized
-                career recommendations using Natural Language Processing.
+                An AI-powered chatbot designed to provide career guidance
+                and help users explore suitable career paths.
             </p>
 
-            <div class="tech-list">
+            <div class="project-tags">
 
-                <span>Flask</span>
-                <span>scikit-learn</span>
-                <span>NLTK</span>
-                <span>spaCy</span>
-                <span>SQLite</span>
-                <span>REST API</span>
+                <span>Python</span>
+                <span>AI</span>
+                <span>NLP</span>
 
             </div>
 
-            <button class="project-details"
-                    data-project="AI Career Guidance Chatbot">
+            <button class="project-btn"
+                    data-project="career">
                 View Details →
             </button>
 
         </article>
 
-
-        <!-- PROJECT 2 -->
 
         <article class="project-card reveal">
 
@@ -459,33 +518,34 @@
                 02
             </div>
 
+            <div class="project-icon">
+                📊
+            </div>
+
             <h3>
                 Student Placement Prediction System
             </h3>
 
             <p>
-                A machine learning application using Random Forest
-                to predict student placement outcomes.
+                A machine-learning based system designed to predict
+                student placement outcomes using relevant academic data.
             </p>
 
-            <div class="tech-list">
+            <div class="project-tags">
 
                 <span>Python</span>
+                <span>Machine Learning</span>
                 <span>Pandas</span>
-                <span>scikit-learn</span>
-                <span>Tkinter</span>
 
             </div>
 
-            <button class="project-details"
-                    data-project="Student Placement Prediction System">
+            <button class="project-btn"
+                    data-project="placement">
                 View Details →
             </button>
 
         </article>
 
-
-        <!-- PROJECT 3 -->
 
         <article class="project-card reveal">
 
@@ -493,33 +553,34 @@
                 03
             </div>
 
+            <div class="project-icon">
+                🏨
+            </div>
+
             <h3>
                 Reservation System
             </h3>
 
             <p>
-                A government-style online train reservation booking
-                application developed as a hackathon project.
+                A web-based reservation solution designed to simplify
+                booking and reservation management.
             </p>
 
-            <div class="tech-list">
+            <div class="project-tags">
 
-                <span>HTML</span>
-                <span>CSS</span>
+                <span>Web</span>
+                <span>Database</span>
                 <span>JavaScript</span>
-                <span>Python</span>
 
             </div>
 
-            <button class="project-details"
-                    data-project="Reservation System">
+            <button class="project-btn"
+                    data-project="reservation">
                 View Details →
             </button>
 
         </article>
 
-
-        <!-- PROJECT 4 -->
 
         <article class="project-card reveal">
 
@@ -527,24 +588,29 @@
                 04
             </div>
 
+            <div class="project-icon">
+                🎓
+            </div>
+
             <h3>
                 Scholarship Application Platform
             </h3>
 
             <p>
-                A scholarship application platform with an AI chatbot
-                designed to guide students through the application process.
+                A digital platform designed to make scholarship application
+                and information management easier for students.
             </p>
 
-            <div class="tech-list">
+            <div class="project-tags">
 
-                <span>GitHub</span>
-                <span>AI Chatbot</span>
+                <span>Web</span>
+                <span>Forms</span>
+                <span>Database</span>
 
             </div>
 
-            <button class="project-details"
-                    data-project="Scholarship Application Platform">
+            <button class="project-btn"
+                    data-project="scholarship">
                 View Details →
             </button>
 
@@ -557,19 +623,18 @@
 
 <!-- ================= OIBSIP ================= -->
 
-<section id="oibsip" class="section section-alt">
+<section class="section alt-section" id="oibsip">
 
     <div class="section-heading reveal">
 
-        <p>OIBSIP INTERNSHIP</p>
+        <p>OASIS INFOBYTE</p>
 
         <h2>
-            My Level 1 Web Development Tasks.
+            My OIBSIP Web Development Tasks.
         </h2>
 
         <p class="heading-description">
-            Three practical web development projects completed
-            as part of the OIBSIP Web Development & Designing Internship.
+            Level 1 Web Development & Designing Internship projects.
         </p>
 
     </div>
@@ -578,76 +643,79 @@
     <div class="oibsip-grid">
 
 
-        <article class="oibsip-card reveal">
+        <div class="oibsip-card reveal">
 
-            <span class="task-label">
-                TASK 01
-            </span>
+            <div class="task-icon">
+                01
+            </div>
 
             <h3>
                 Landing Page
             </h3>
 
             <p>
-                A modern responsive business landing page
-                with interactive sections and animations.
+                A professional responsive landing page created as part
+                of the OIBSIP Web Development internship.
             </p>
 
             <a href="https://tarunsavu-star.github.io/OIBSIP/Task1/"
                target="_blank"
-               class="live-link">
-                Open Live Project ↗
+               rel="noopener"
+               class="task-link">
+                Open Live Project →
             </a>
 
-        </article>
+        </div>
 
 
-        <article class="oibsip-card reveal">
+        <div class="oibsip-card reveal">
 
-            <span class="task-label">
-                TASK 02
-            </span>
+            <div class="task-icon">
+                02
+            </div>
 
             <h3>
                 Personal Portfolio
             </h3>
 
             <p>
-                This professional personal portfolio showcasing
-                my skills, projects, experience and achievements.
+                An interactive personal portfolio showcasing skills,
+                projects, experience and professional information.
             </p>
 
             <a href="https://tarunsavu-star.github.io/OIBSIP/Task2/"
                target="_blank"
-               class="live-link">
-                Open Live Project ↗
+               rel="noopener"
+               class="task-link">
+                Open Live Project →
             </a>
 
-        </article>
+        </div>
 
 
-        <article class="oibsip-card reveal">
+        <div class="oibsip-card reveal">
 
-            <span class="task-label">
-                TASK 03
-            </span>
+            <div class="task-icon">
+                03
+            </div>
 
             <h3>
                 Temperature Converter
             </h3>
 
             <p>
-                An interactive temperature conversion web
-                application built using front-end technologies.
+                A responsive temperature conversion application developed
+                for the OIBSIP internship.
             </p>
 
             <a href="https://tarunsavu-star.github.io/OIBSIP/Task3/"
                target="_blank"
-               class="live-link">
-                Open Live Project ↗
+               rel="noopener"
+               class="task-link">
+                Open Live Project →
             </a>
 
-        </article>
+        </div>
 
     </div>
 
@@ -656,7 +724,7 @@
 
 <!-- ================= EXPERIENCE ================= -->
 
-<section id="experience" class="section">
+<section class="section" id="experience">
 
     <div class="section-heading reveal">
 
@@ -678,7 +746,7 @@
 
             <div class="timeline-content">
 
-                <span>
+                <span class="timeline-date">
                     May 2025 – Jul 2025
                 </span>
 
@@ -687,19 +755,13 @@
                 </h3>
 
                 <h4>
-                    ADHOC Network, Srikakulam
+                    ADHOC Network
                 </h4>
 
                 <p>
-                    Built and deployed responsive web applications
-                    as part of a 5-member agile team using MongoDB,
-                    Express.js, React and Node.js.
-                </p>
-
-                <p>
-                    Delivered a real-time live-dashboard and
-                    notifications feature module integrating REST APIs
-                    and Git/GitHub version control.
+                    Gained practical experience in full-stack development,
+                    working with modern web technologies and application
+                    development concepts.
                 </p>
 
             </div>
@@ -713,7 +775,7 @@
 
             <div class="timeline-content">
 
-                <span>
+                <span class="timeline-date">
                     Dec 2025 – Apr 2026
                 </span>
 
@@ -722,12 +784,42 @@
                 </h3>
 
                 <h4>
-                    Vidrutha Solutions, Srikakulam
+                    Vidrutha Solutions
                 </h4>
 
                 <p>
-                    Led development of the AI Career Guidance Chatbot
-                    and the Student Placement Prediction System.
+                    Worked on software development activities and gained
+                    practical exposure to development workflows and
+                    professional software practices.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+                <span class="timeline-date">
+                    2026
+                </span>
+
+                <h3>
+                    Web Development & Designing Intern
+                </h3>
+
+                <h4>
+                    Oasis Infobyte — OIBSIP
+                </h4>
+
+                <p>
+                    Completed Level 1 web development projects including
+                    Landing Page, Personal Portfolio and Temperature
+                    Converter.
                 </p>
 
             </div>
@@ -741,7 +833,7 @@
 
 <!-- ================= EDUCATION ================= -->
 
-<section id="education" class="section section-alt">
+<section class="section alt-section" id="education">
 
     <div class="section-heading reveal">
 
@@ -756,24 +848,27 @@
 
     <div class="education-card reveal">
 
-        <div class="education-year">
-            2023 — 2026
+        <div class="education-icon">
+            🎓
         </div>
 
         <div>
 
+            <span>
+                2023 – 2026
+            </span>
+
             <h3>
-                Bachelor of Computer Applications (BCA)
+                Bachelor of Computer Applications
             </h3>
 
-            <p>
-                Sri Aditya Degree College, Kakinada |
-                Srikakulam
-            </p>
+            <h4>
+                Sri Aditya Degree College
+            </h4>
 
-            <strong>
-                CGPA: 7.81 / 10
-            </strong>
+            <p>
+                CGPA: <strong>7.81 / 10</strong>
+            </p>
 
         </div>
 
@@ -784,7 +879,7 @@
 
 <!-- ================= CERTIFICATIONS ================= -->
 
-<section id="certifications" class="section">
+<section class="section" id="certifications">
 
     <div class="section-heading reveal">
 
@@ -797,188 +892,48 @@
     </div>
 
 
-    <div class="certifications-grid">
+    <div class="cert-grid">
 
 
-        <div class="certificate-card reveal">
-
-            <span>01</span>
-
-            <h3>
-                Python Essentials
-            </h3>
-
-            <p>
-                Cisco NetAcad
-            </p>
-
+        <div class="cert-card reveal">
+            <span>🐍</span>
+            <h3>Python Essentials</h3>
+            <p>Cisco NetAcad</p>
         </div>
 
 
-        <div class="certificate-card reveal">
-
-            <span>02</span>
-
-            <h3>
-                C Programming
-            </h3>
-
-            <p>
-                Cisco NetAcad
-            </p>
-
+        <div class="cert-card reveal">
+            <span>💻</span>
+            <h3>C Programming</h3>
+            <p>Cisco NetAcad</p>
         </div>
 
 
-        <div class="certificate-card reveal">
-
-            <span>03</span>
-
-            <h3>
-                Microsoft Azure Fundamentals
-            </h3>
-
-            <p>
-                Digisaksham
-            </p>
-
+        <div class="cert-card reveal">
+            <span>☁️</span>
+            <h3>Microsoft Azure Fundamentals</h3>
+            <p>Digisaksham</p>
         </div>
 
 
-        <div class="certificate-card reveal">
-
-            <span>04</span>
-
-            <h3>
-                HTML5 Application Development
-            </h3>
-
-            <p>
-                Certiport
-            </p>
-
+        <div class="cert-card reveal">
+            <span>🌐</span>
+            <h3>HTML5 Application Development</h3>
+            <p>Certiport</p>
         </div>
 
 
-        <div class="certificate-card reveal">
-
-            <span>05</span>
-
-            <h3>
-                AI & Machine Learning
-            </h3>
-
-            <p>
-                U-Learn
-            </p>
-
+        <div class="cert-card reveal">
+            <span>🤖</span>
+            <h3>AI & Machine Learning</h3>
+            <p>U-Learn</p>
         </div>
 
 
-        <div class="certificate-card reveal">
-
-            <span>06</span>
-
-            <h3>
-                MePro – English Language Proficiency
-            </h3>
-
-            <p>
-                Pearson
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= ACHIEVEMENTS ================= -->
-
-<section class="section section-alt">
-
-    <div class="section-heading reveal">
-
-        <p>ACHIEVEMENTS</p>
-
-        <h2>
-            Milestones I'm proud of.
-        </h2>
-
-    </div>
-
-
-    <div class="achievement-grid">
-
-
-        <div class="achievement-card reveal">
-
-            <strong>
-                7.81
-            </strong>
-
-            <h3>
-                CGPA
-            </h3>
-
-            <p>
-                Maintained a 7.81/10 CGPA during my BCA.
-            </p>
-
-        </div>
-
-
-        <div class="achievement-card reveal">
-
-            <strong>
-                25%
-            </strong>
-
-            <h3>
-                Delivery Improvement
-            </h3>
-
-            <p>
-                Improved team delivery speed through
-                agile collaboration during my MERN internship.
-            </p>
-
-        </div>
-
-
-        <div class="achievement-card reveal">
-
-            <strong>
-                4
-            </strong>
-
-            <h3>
-                Projects Built
-            </h3>
-
-            <p>
-                Built projects across full-stack development
-                and AI/ML.
-            </p>
-
-        </div>
-
-
-        <div class="achievement-card reveal">
-
-            <strong>
-                6
-            </strong>
-
-            <h3>
-                Certifications
-            </h3>
-
-            <p>
-                Completed six industry certifications.
-            </p>
-
+        <div class="cert-card reveal">
+            <span>🗣️</span>
+            <h3>MePro English Language Proficiency</h3>
+            <p>Pearson</p>
         </div>
 
     </div>
@@ -988,14 +943,14 @@
 
 <!-- ================= SERVICES ================= -->
 
-<section id="services" class="section">
+<section class="section alt-section" id="services">
 
     <div class="section-heading reveal">
 
         <p>WHAT I CAN DO</p>
 
         <h2>
-            Areas I'm interested in.
+            My areas of interest.
         </h2>
 
     </div>
@@ -1006,15 +961,17 @@
 
         <div class="service-card reveal">
 
-            <span>01</span>
+            <div class="service-icon">
+                💻
+            </div>
 
             <h3>
                 Web Development
             </h3>
 
             <p>
-                Responsive websites and full-stack
-                web applications.
+                Creating responsive and interactive websites using
+                modern frontend and backend technologies.
             </p>
 
         </div>
@@ -1022,15 +979,17 @@
 
         <div class="service-card reveal">
 
-            <span>02</span>
+            <div class="service-icon">
+                ⚙️
+            </div>
 
             <h3>
-                AI / ML Applications
+                Full Stack Development
             </h3>
 
             <p>
-                Practical machine learning and
-                NLP-based applications.
+                Developing complete web applications with frontend,
+                backend, APIs and databases.
             </p>
 
         </div>
@@ -1038,15 +997,17 @@
 
         <div class="service-card reveal">
 
-            <span>03</span>
+            <div class="service-icon">
+                🤖
+            </div>
 
             <h3>
-                UI Development
+                AI & Machine Learning
             </h3>
 
             <p>
-                Clean, responsive and user-focused
-                front-end interfaces.
+                Exploring intelligent applications using Python,
+                machine learning and natural language processing.
             </p>
 
         </div>
@@ -1054,15 +1015,17 @@
 
         <div class="service-card reveal">
 
-            <span>04</span>
+            <div class="service-icon">
+                🧪
+            </div>
 
             <h3>
                 Software Testing
             </h3>
 
             <p>
-                Manual testing, cross-browser testing
-                and bug tracking.
+                Performing manual testing, cross-browser testing and
+                identifying application issues.
             </p>
 
         </div>
@@ -1074,19 +1037,19 @@
 
 <!-- ================= CONTACT ================= -->
 
-<section id="contact" class="section contact-section">
+<section class="section contact-section" id="contact">
 
     <div class="section-heading reveal">
 
-        <p>GET IN TOUCH</p>
+        <p>CONTACT</p>
 
         <h2>
-            Let's connect.
+            Let's build something together.
         </h2>
 
         <p class="heading-description">
-            I'm open to entry-level software opportunities,
-            development projects and professional connections.
+            Feel free to connect with me for opportunities, projects
+            or collaboration.
         </p>
 
     </div>
@@ -1100,16 +1063,11 @@
             <a href="mailto:tarunsavu@gmail.com"
                class="contact-card">
 
-                <span>✉</span>
+                <span>✉️</span>
 
                 <div>
-
                     <small>Email</small>
-
-                    <strong>
-                        tarunsavu@gmail.com
-                    </strong>
-
+                    <strong>tarunsavu@gmail.com</strong>
                 </div>
 
             </a>
@@ -1118,16 +1076,11 @@
             <a href="tel:+917569786175"
                class="contact-card">
 
-                <span>☎</span>
+                <span>📞</span>
 
                 <div>
-
                     <small>Phone</small>
-
-                    <strong>
-                        +91 7569786175
-                    </strong>
-
+                    <strong>+91 7569786175</strong>
                 </div>
 
             </a>
@@ -1135,18 +1088,14 @@
 
             <a href="https://www.linkedin.com/in/tarun-kumar-savu-730311384/"
                target="_blank"
+               rel="noopener"
                class="contact-card">
 
                 <span>in</span>
 
                 <div>
-
                     <small>LinkedIn</small>
-
-                    <strong>
-                        Tarun Kumar Savu
-                    </strong>
-
+                    <strong>Connect with me</strong>
                 </div>
 
             </a>
@@ -1154,18 +1103,14 @@
 
             <a href="https://github.com/tarunsavu-star"
                target="_blank"
+               rel="noopener"
                class="contact-card">
 
-                <span>◉</span>
+                <span>GH</span>
 
                 <div>
-
                     <small>GitHub</small>
-
-                    <strong>
-                        tarunsavu-star
-                    </strong>
-
+                    <strong>View my repositories</strong>
                 </div>
 
             </a>
@@ -1173,45 +1118,39 @@
         </div>
 
 
-        <!-- CONTACT FORM -->
+        <form class="contact-form reveal"
+              id="contactForm">
 
-        <form id="contactForm"
-              class="contact-form reveal">
+            <div class="form-row">
 
-            <input
-                type="text"
-                id="contactName"
-                placeholder="Your Name"
-                required
-            >
+                <input type="text"
+                       id="name"
+                       placeholder="Your Name"
+                       required>
 
-            <input
-                type="email"
-                id="contactEmail"
-                placeholder="Your Email"
-                required
-            >
+                <input type="email"
+                       id="email"
+                       placeholder="Your Email"
+                       required>
 
-            <input
-                type="text"
-                id="contactSubject"
-                placeholder="Subject"
-                required
-            >
+            </div>
 
-            <textarea
-                id="contactMessage"
-                rows="6"
-                placeholder="Your Message"
-                required
-            ></textarea>
+            <input type="text"
+                   id="subject"
+                   placeholder="Subject"
+                   required>
+
+            <textarea id="message"
+                      rows="6"
+                      placeholder="Your Message"
+                      required></textarea>
 
             <button type="submit"
                     class="btn primary">
                 Send Message →
             </button>
 
-            <p id="contactStatus"></p>
+            <p id="formMessage"></p>
 
         </form>
 
@@ -1226,25 +1165,40 @@
 
     <div class="footer-content">
 
-        <h2>
-            Tarun<span>.</span>
-        </h2>
+        <div>
 
-        <p>
-            BCA Graduate • Full Stack Developer • AI/ML Enthusiast
-        </p>
+            <a href="#home" class="logo">
+                <span>TK</span>
+                Tarun Kumar
+            </a>
+
+            <p>
+                Full-Stack Developer & AI/ML Enthusiast
+            </p>
+
+        </div>
+
 
         <div class="footer-links">
 
             <a href="#home">Home</a>
             <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
 
         </div>
 
-        <p class="copyright">
-            © 2026 Savu Tarun Kumar. All rights reserved.
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="year"></span>
+            Savu Tarun Kumar. All Rights Reserved.
+        </p>
+
+        <p>
+            Built with HTML, CSS & JavaScript.
         </p>
 
     </div>
@@ -1254,29 +1208,29 @@
 
 <!-- ================= PROJECT MODAL ================= -->
 
-<div id="projectModal"
-     class="modal">
+<div class="modal"
+     id="projectModal">
 
     <div class="modal-box">
 
-        <button id="closeProjectModal"
-                class="modal-close">
-            ✕
+        <button class="modal-close"
+                id="modalClose">
+            ×
         </button>
 
-        <span id="modalProjectNumber">
-            PROJECT
+        <span class="modal-label">
+            PROJECT DETAILS
         </span>
 
-        <h2 id="modalProjectTitle">
+        <h2 id="modalTitle">
             Project
         </h2>
 
-        <p id="modalProjectDescription">
+        <p id="modalDescription">
         </p>
 
-        <div id="modalProjectTech"
-             class="tech-list">
+        <div id="modalTechnologies"
+             class="project-tags">
         </div>
 
     </div>
@@ -1284,55 +1238,55 @@
 </div>
 
 
-<!-- ================= CHAT BUTTON ================= -->
+<!-- ================= CHAT ================= -->
 
-<button id="chatButton"
-        class="chat-button">
+<button class="chat-button"
+        id="chatButton">
+
     💬
+
 </button>
 
 
-<!-- ================= CHAT WINDOW ================= -->
-
-<div id="chatWindow"
-     class="chat-window">
+<div class="chat-window"
+     id="chatWindow">
 
     <div class="chat-header">
 
         <div>
 
             <strong>
-                Tarun's Portfolio Assistant
+                Tarun's Assistant
             </strong>
 
             <small>
-                Ask about my portfolio
+                Online
             </small>
 
         </div>
 
-        <button id="closeChat">
-            ✕
+        <button id="chatClose">
+            ×
         </button>
 
     </div>
 
 
-    <div id="chatMessages"
-         class="chat-messages">
+    <div class="chat-messages"
+         id="chatMessages">
 
-        <div class="bot-message">
+        <div class="message bot">
 
-            Hi! 👋 Ask me about Tarun's
-            skills, projects, internships,
-            education or contact details.
+            Hi! 👋 I'm Tarun's portfolio assistant.
+            Ask me about his skills, projects, experience
+            or OIBSIP tasks.
 
         </div>
 
     </div>
 
 
-    <div class="quick-options">
+    <div class="quick-questions">
 
         <button data-question="skills">
             Skills
@@ -1355,13 +1309,11 @@
 
     <div class="chat-input">
 
-        <input
-            type="text"
-            id="chatInput"
-            placeholder="Ask something..."
-        >
+        <input type="text"
+               id="chatInput"
+               placeholder="Ask something...">
 
-        <button id="sendChat">
+        <button id="chatSend">
             ➤
         </button>
 
@@ -1369,8 +1321,6 @@
 
 </div>
 
-
-<!-- ================= SCRIPTS ================= -->
 
 <script src="script.js"></script>
 
