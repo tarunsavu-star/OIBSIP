@@ -1,148 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Temperature Converter | Tarun Kumar</title>
+  <title>TempX | Advanced Temperature Converter</title>
 
-    <link rel="stylesheet" href="style.css">
+  <meta name="description"
+        content="A modern temperature conversion application supporting Celsius, Fahrenheit and Kelvin.">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <a href="#" class="logo">TEMP<span>.</span></a>
+<!-- ================= NAVBAR ================= -->
 
-            <span class="nav-title">
-                OIBSIP | Task 3
-            </span>
-        </nav>
-    </header>
+<header class="navbar">
+  <div class="container nav-container">
 
+    <a href="#home" class="logo">
+      <span>Temp</span>X
+    </a>
 
-    <!-- Main -->
-    <main>
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#converter">Converter</a>
+      <a href="#history">History</a>
+      <a href="#guide">Guide</a>
+      <a href="#about">About</a>
+    </nav>
 
-        <section class="converter-section">
+    <button class="theme-btn"
+            id="themeToggle"
+            aria-label="Toggle theme">
+      🌙
+    </button>
 
-            <div class="converter-container">
+    <button class="menu-btn"
+            id="menuToggle"
+            aria-label="Open menu">
+      ☰
+    </button>
 
-                <div class="intro">
-                    <p class="tagline">TEMPERATURE CONVERTER</p>
-
-                    <h1>
-                        Convert temperatures
-                        <span>easily.</span>
-                    </h1>
-
-                    <p>
-                        Enter a temperature, choose the unit and instantly
-                        convert it into Celsius, Fahrenheit and Kelvin.
-                    </p>
-                </div>
-
-
-                <!-- Converter Card -->
-                <div class="converter-card">
-
-                    <div class="input-group">
-
-                        <label for="temperature">
-                            Enter Temperature
-                        </label>
-
-                        <input
-                            type="number"
-                            id="temperature"
-                            placeholder="Enter value"
-                            step="any"
-                        >
-
-                    </div>
+  </div>
+</header>
 
 
-                    <div class="input-group">
+<!-- ================= HERO ================= -->
 
-                        <label for="unit">
-                            Select Unit
-                        </label>
+<main>
 
-                        <select id="unit">
+<section id="home" class="hero">
 
-                            <option value="celsius">
-                                Celsius (°C)
-                            </option>
+  <div class="hero-glow glow-one"></div>
+  <div class="hero-glow glow-two"></div>
 
-                            <option value="fahrenheit">
-                                Fahrenheit (°F)
-                            </option>
+  <div class="container hero-grid">
 
-                            <option value="kelvin">
-                                Kelvin (K)
-                            </option>
+    <div class="hero-content reveal">
 
-                        </select>
+      <div class="badge">
+        🌡️ Smart Temperature Tool
+      </div>
 
-                    </div>
+      <h1>
+        Convert temperature
+        <span>instantly.</span>
+      </h1>
 
+      <p>
+        A fast, accurate and modern temperature converter
+        supporting Celsius, Fahrenheit and Kelvin with
+        conversion history and temperature insights.
+      </p>
 
-                    <button id="convertBtn">
-                        Convert Temperature →
-                    </button>
+      <div class="hero-buttons">
 
+        <a href="#converter"
+           class="btn primary">
+          Start Converting →
+        </a>
 
-                    <div id="message"></div>
+        <a href="#guide"
+           class="btn secondary">
+          Learn More
+        </a>
 
+      </div>
 
-                    <!-- Results -->
-                    <div class="results">
+      <div class="hero-features">
 
-                        <div class="result-box">
-                            <span>Celsius</span>
-                            <strong id="celsiusResult">
-                                -- °C
-                            </strong>
-                        </div>
+        <span>✓ Accurate</span>
+        <span>✓ Instant</span>
+        <span>✓ Responsive</span>
 
-                        <div class="result-box">
-                            <span>Fahrenheit</span>
-                            <strong id="fahrenheitResult">
-                                -- °F
-                            </strong>
-                        </div>
+      </div>
 
-                        <div class="result-box">
-                            <span>Kelvin</span>
-                            <strong id="kelvinResult">
-                                -- K
-                            </strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
+    </div>
 
 
-    <!-- Footer -->
-    <footer>
+    <div class="hero-card reveal">
+
+      <div class="mini-card-top">
+        <span>LIVE CONVERSION</span>
+        <span class="live-dot">●</span>
+      </div>
+
+      <div class="temperature-display">
+        <strong id="heroTemperature">25</strong>
+        <span>°C</span>
+      </div>
+
+      <div class="mini-conversions">
+
+        <div>
+          <span>Fahrenheit</span>
+          <strong id="heroFahrenheit">77 °F</strong>
+        </div>
+
+        <div>
+          <span>Kelvin</span>
+          <strong id="heroKelvin">298.15 K</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONVERTER ================= -->
+
+<section id="converter" class="section converter-section">
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span>01 — CONVERTER</span>
+      <h2>Temperature <em>Converter</em></h2>
+      <p>
+        Enter a value, select your units and get the result instantly.
+      </p>
+    </div>
+
+
+    <div class="converter-card reveal">
+
+      <div class="converter-top">
+
+        <div>
+          <span class="small-label">CONVERSION MODE</span>
+          <h3>Choose your temperature units</h3>
+        </div>
+
+        <button id="swapButton"
+                class="swap-btn"
+                title="Swap units">
+          ⇄
+        </button>
+
+      </div>
+
+
+      <div class="converter-grid">
+
+        <div class="input-group">
+
+          <label for="temperatureInput">
+            Temperature
+          </label>
+
+          <div class="input-wrapper">
+
+            <input
+              type="number"
+              id="temperatureInput"
+              placeholder="Enter value"
+              step="any"
+              autocomplete="off"
+            >
+
+            <button id="clearInput"
+                    class="clear-input"
+                    title="Clear">
+              ×
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label for="fromUnit">
+            From
+          </label>
+
+          <select id="fromUnit">
+
+            <option value="celsius">
+              Celsius (°C)
+            </option>
+
+            <option value="fahrenheit">
+              Fahrenheit (°F)
+            </option>
+
+            <option value="kelvin">
+              Kelvin (K)
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="conversion-arrow">
+          →
+        </div>
+
+
+        <div class="input-group">
+
+          <label for="toUnit">
+            To
+          </label>
+
+          <select id="toUnit">
+
+            <option value="fahrenheit">
+              Fahrenheit (°F)
+            </option>
+
+            <option value="celsius">
+              Celsius (°C)
+            </option>
+
+            <option value="kelvin">
+              Kelvin (K)
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="result-panel">
+
+        <div>
+          <span class="small-label">RESULT</span>
+
+          <div class="result-value"
+               id="resultValue">
+            —
+          </div>
+
+          <p id="resultText">
+            Enter a temperature to begin.
+          </p>
+        </div>
+
+        <button id="copyButton"
+                class="copy-btn">
+          📋 Copy
+        </button>
+
+      </div>
+
+
+      <div class="temperature-status"
+           id="temperatureStatus">
+
+        <div class="status-icon"
+             id="statusIcon">
+          🌡️
+        </div>
+
+        <div>
+
+          <strong id="statusTitle">
+            Waiting for input
+          </strong>
+
+          <p id="statusDescription">
+            Your temperature condition will appear here.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- QUICK VALUES -->
+
+    <div class="quick-section reveal">
+
+      <div class="quick-heading">
+        <span class="small-label">QUICK VALUES</span>
+        <h3>Try a common temperature</h3>
+      </div>
+
+      <div class="quick-grid">
+
+        <button class="quick-btn"
+                data-value="0">
+          <strong>0°C</strong>
+          <span>Freezing point</span>
+        </button>
+
+        <button class="quick-btn"
+                data-value="25">
+          <strong>25°C</strong>
+          <span>Comfortable</span>
+        </button>
+
+        <button class="quick-btn"
+                data-value="37">
+          <strong>37°C</strong>
+          <span>Body temperature</span>
+        </button>
+
+        <button class="quick-btn"
+                data-value="100">
+          <strong>100°C</strong>
+          <span>Water boiling point</span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= HISTORY ================= -->
+
+<section id="history" class="section alt-section">
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span>02 — HISTORY</span>
+      <h2>Your conversion <em>history.</em></h2>
+      <p>
+        Previous conversions are stored locally on your device.
+      </p>
+    </div>
+
+
+    <div class="history-card reveal">
+
+      <div class="history-header">
+
+        <div>
+          <h3>Recent Conversions</h3>
+          <span id="historyCount">
+            0 conversions
+          </span>
+        </div>
+
+        <button id="clearHistory"
+                class="clear-history">
+          Clear History
+        </button>
+
+      </div>
+
+
+      <div id="historyList"
+           class="history-list">
+
+        <div class="empty-history">
+          <div>🧮</div>
+          <h3>No conversions yet</h3>
+          <p>
+            Your recent conversions will appear here.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= GUIDE ================= -->
+
+<section id="guide" class="section">
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span>03 — GUIDE</span>
+      <h2>Temperature <em>explained.</em></h2>
+      <p>
+        Understand the three temperature scales used by TempX.
+      </p>
+    </div>
+
+
+    <div class="guide-grid">
+
+      <article class="guide-card reveal">
+
+        <div class="guide-icon">°C</div>
+
+        <h3>Celsius</h3>
 
         <p>
-            © 2026 Tarun Kumar | OIBSIP Level 1 - Task 3
+          Celsius is commonly used around the world for
+          everyday temperature measurement.
         </p>
 
-    </footer>
+        <div class="guide-value">
+          0°C = Freezing<br>
+          100°C = Boiling
+        </div>
+
+      </article>
 
 
-    <script src="script.js"></script>
+      <article class="guide-card reveal">
+
+        <div class="guide-icon">°F</div>
+
+        <h3>Fahrenheit</h3>
+
+        <p>
+          Fahrenheit is widely used for everyday temperature
+          measurement in the United States.
+        </p>
+
+        <div class="guide-value">
+          32°F = Freezing<br>
+          212°F = Boiling
+        </div>
+
+      </article>
+
+
+      <article class="guide-card reveal">
+
+        <div class="guide-icon">K</div>
+
+        <h3>Kelvin</h3>
+
+        <p>
+          Kelvin is an absolute temperature scale commonly
+          used in scientific applications.
+        </p>
+
+        <div class="guide-value">
+          0 K = Absolute Zero
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- FORMULAS -->
+
+    <div class="formula-card reveal">
+
+      <span class="small-label">
+        CONVERSION FORMULAS
+      </span>
+
+      <h3>How the conversion works</h3>
+
+      <div class="formula-grid">
+
+        <div>
+          <strong>°C → °F</strong>
+          <code>(°C × 9/5) + 32</code>
+        </div>
+
+        <div>
+          <strong>°F → °C</strong>
+          <code>(°F − 32) × 5/9</code>
+        </div>
+
+        <div>
+          <strong>°C → K</strong>
+          <code>°C + 273.15</code>
+        </div>
+
+        <div>
+          <strong>K → °C</strong>
+          <code>K − 273.15</code>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="section alt-section">
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span>04 — ABOUT TASK</span>
+      <h2>Built as a <em>web development project.</em></h2>
+    </div>
+
+
+    <div class="about-grid">
+
+      <div class="about-card reveal">
+
+        <div class="about-number">01</div>
+
+        <h3>Project Objective</h3>
+
+        <p>
+          TempX is designed as a practical temperature conversion
+          application with a clean interface and interactive
+          functionality.
+        </p>
+
+      </div>
+
+
+      <div class="about-card reveal">
+
+        <div class="about-number">02</div>
+
+        <h3>Technologies</h3>
+
+        <div class="technology-list">
+
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript</span>
+          <span>Responsive Design</span>
+          <span>Local Storage</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="about-card reveal">
+
+        <div class="about-number">03</div>
+
+        <h3>Features</h3>
+
+        <ul>
+          <li>Instant conversion</li>
+          <li>Multiple temperature scales</li>
+          <li>Conversion history</li>
+          <li>Dark/light mode</li>
+          <li>Responsive interface</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PROJECT LINKS ================= -->
+
+<section class="section project-links">
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span>05 — MORE WORK</span>
+      <h2>Explore my other <em>projects.</em></h2>
+    </div>
+
+    <div class="links-grid">
+
+      <a href="../Task1/"
+         class="project-link reveal">
+
+        <span>01</span>
+
+        <div>
+          <h3>Landing Page</h3>
+          <p>OIBSIP Task 1</p>
+        </div>
+
+        <strong>→</strong>
+
+      </a>
+
+
+      <a href="../Task2/"
+         class="project-link reveal">
+
+        <span>02</span>
+
+        <div>
+          <h3>Personal Portfolio</h3>
+          <p>OIBSIP Task 2</p>
+        </div>
+
+        <strong>→</strong>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="container footer-content">
+
+    <div>
+      <a href="#home" class="footer-logo">
+        TempX
+      </a>
+
+      <p>
+        Advanced Temperature Converter.
+      </p>
+    </div>
+
+    <div class="footer-right">
+
+      <span>
+        OIBSIP Web Development & Designing
+      </span>
+
+      <a href="#home">
+        Back to top ↑
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast"
+     class="toast">
+  Copied successfully!
+</div>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
