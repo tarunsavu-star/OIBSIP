@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Temperature Converter application">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container nav">
+        <a href="#" class="logo">
+            <span class="logo-icon">°</span>
+            TempConvert
+        </a>
+
+        <div class="nav-actions">
+            <button id="themeBtn" class="icon-btn" title="Change theme">☾</button>
+            <button id="menuBtn" class="icon-btn menu-btn">☰</button>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text reveal">
+                <span class="badge">SMART TEMPERATURE TOOL</span>
+
+                <h1>
+                    Convert Temperature
+                    <span>Instantly & Accurately.</span>
+                </h1>
+
+                <p>
+                    A simple and powerful temperature conversion application
+                    for Celsius, Fahrenheit and Kelvin.
+                </p>
+
+                <a href="#converter" class="primary-btn">
+                    Start Converting →
+                </a>
+            </div>
+
+            <div class="hero-card reveal">
+                <div class="temperature-circle">
+                    <span id="heroTemp">25°</span>
+                    <small>CELSIUS</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CONVERTER -->
+    <section id="converter" class="converter-section">
+        <div class="container">
+
+            <div class="section-heading reveal">
+                <span class="section-number">01</span>
+                <div>
+                    <span class="eyebrow">CONVERTER</span>
+                    <h2>Temperature Converter</h2>
+                    <p>Enter a value and choose your units.</p>
+                </div>
+            </div>
+
+            <div class="converter-grid">
+
+                <div class="converter-card reveal">
+
+                    <div class="input-group">
+                        <label for="temperatureInput">Temperature</label>
+
+                        <div class="input-wrap">
+                            <input
+                                type="number"
+                                id="temperatureInput"
+                                placeholder="Enter temperature"
+                                autocomplete="off"
+                            >
+                            <span id="inputSymbol">°C</span>
+                        </div>
+                    </div>
+
+                    <div class="unit-row">
+
+                        <div class="input-group">
+                            <label for="fromUnit">From</label>
+
+                            <select id="fromUnit">
+                                <option value="C">Celsius (°C)</option>
+                                <option value="F">Fahrenheit (°F)</option>
+                                <option value="K">Kelvin (K)</option>
+                            </select>
+                        </div>
+
+                        <button id="swapBtn" class="swap-btn" title="Swap units">
+                            ⇄
+                        </button>
+
+                        <div class="input-group">
+                            <label for="toUnit">To</label>
+
+                            <select id="toUnit">
+                                <option value="F">Fahrenheit (°F)</option>
+                                <option value="C">Celsius (°C)</option>
+                                <option value="K">Kelvin (K)</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <button id="convertBtn" class="convert-btn">
+                        Convert Temperature
+                    </button>
+
+                    <button id="clearBtn" class="clear-btn">
+                        Clear
+                    </button>
+
+                </div>
+
+
+                <!-- RESULT -->
+                <div class="result-card reveal">
+
+                    <span class="result-label">CONVERSION RESULT</span>
+
+                    <div class="result-value">
+                        <span id="resultNumber">0</span>
+                        <span id="resultUnit">°F</span>
+                    </div>
+
+                    <div id="temperatureStatus" class="status">
+                        Waiting for temperature...
+                    </div>
+
+                    <div class="result-actions">
+                        <button id="copyBtn" class="secondary-btn">
+                            Copy Result
+                        </button>
+                    </div>
+
+                    <div class="formula-box">
+                        <span>Formula</span>
+                        <p id="formulaText">
+                            Enter a temperature to see the formula.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- QUICK CONVERSION -->
+    <section class="quick-section">
+        <div class="container">
+
+            <div class="section-heading reveal">
+                <span class="section-number">02</span>
+                <div>
+                    <span class="eyebrow">QUICK VALUES</span>
+                    <h2>Common Temperatures</h2>
+                    <p>Select a value for quick conversion.</p>
+                </div>
+            </div>
+
+            <div class="quick-grid">
+
+                <button class="quick-card" data-temp="0">
+                    <strong>0°C</strong>
+                    <span>Freezing Point</span>
+                </button>
+
+                <button class="quick-card" data-temp="20">
+                    <strong>20°C</strong>
+                    <span>Cool</span>
+                </button>
+
+                <button class="quick-card" data-temp="25">
+                    <strong>25°C</strong>
+                    <span>Comfortable</span>
+                </button>
+
+                <button class="quick-card" data-temp="37">
+                    <strong>37°C</strong>
+                    <span>Body Temperature</span>
+                </button>
+
+                <button class="quick-card" data-temp="100">
+                    <strong>100°C</strong>
+                    <span>Boiling Point</span>
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT APPLICATION -->
+    <section class="about-section">
+        <div class="container">
+
+            <div class="section-heading reveal">
+                <span class="section-number">03</span>
+                <div>
+                    <span class="eyebrow">ABOUT THIS APPLICATION</span>
+                    <h2>Simple. Fast. Accurate.</h2>
+                </div>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-content reveal">
+                    <p>
+                        Temperature Converter is a web application designed
+                        to make temperature conversion quick and convenient.
+                        It allows users to convert values between Celsius,
+                        Fahrenheit and Kelvin.
+                    </p>
+
+                    <p>
+                        The application provides instant conversion results,
+                        useful temperature status information, conversion
+                        formulas and a history of previous conversions.
+                    </p>
+
+                    <p>
+                        It is designed with a clean interface so users can
+                        enter a temperature, select the required units and
+                        immediately receive the converted value.
+                    </p>
+                </div>
+
+                <div class="feature-list reveal">
+
+                    <div class="feature">
+                        <span>01</span>
+                        <div>
+                            <h3>Three Units</h3>
+                            <p>Celsius, Fahrenheit and Kelvin.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <span>02</span>
+                        <div>
+                            <h3>Instant Results</h3>
+                            <p>Conversion results are calculated immediately.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <span>03</span>
+                        <div>
+                            <h3>Conversion History</h3>
+                            <p>Previous conversions can be viewed and cleared.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <span>04</span>
+                        <div>
+                            <h3>Modern Interface</h3>
+                            <p>Clean controls with dark and light themes.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- HISTORY -->
+    <section class="history-section">
+        <div class="container">
+
+            <div class="section-heading reveal">
+                <span class="section-number">04</span>
+                <div>
+                    <span class="eyebrow">HISTORY</span>
+                    <h2>Recent Conversions</h2>
+                    <p>Your previous calculations.</p>
+                </div>
+            </div>
+
+            <div class="history-card reveal">
+
+                <div id="historyList" class="history-list">
+                    <div class="empty-history">
+                        No conversion history yet.
+                    </div>
+                </div>
+
+                <button id="clearHistoryBtn" class="clear-history">
+                    Clear History
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- GUIDE -->
+    <section class="guide-section">
+        <div class="container">
+
+            <div class="section-heading reveal">
+                <span class="section-number">05</span>
+                <div>
+                    <span class="eyebrow">GUIDE</span>
+                    <h2>Conversion Formulas</h2>
+                    <p>Useful formulas behind the calculations.</p>
+                </div>
+            </div>
+
+            <div class="formula-grid reveal">
+
+                <div class="formula-card">
+                    <h3>Celsius → Fahrenheit</h3>
+                    <p>°F = (°C × 9/5) + 32</p>
+                </div>
+
+                <div class="formula-card">
+                    <h3>Fahrenheit → Celsius</h3>
+                    <p>°C = (°F − 32) × 5/9</p>
+                </div>
+
+                <div class="formula-card">
+                    <h3>Celsius → Kelvin</h3>
+                    <p>K = °C + 273.15</p>
+                </div>
+
+                <div class="formula-card">
+                    <h3>Kelvin → Celsius</h3>
+                    <p>°C = K − 273.15</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>TempConvert</h3>
+            <p>Smart temperature conversion application.</p>
+        </div>
+
+        <p>© <span id="year"></span> TempConvert. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<div id="toast" class="toast">
+    Result copied successfully.
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
